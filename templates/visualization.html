@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualization</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<<<<<<< HEAD
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+=======
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+>>>>>>> feca63891d9923da81086a8978f8441a317e0629
+
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/tiledwebmap.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/accessibility.js"></script>
+<<<<<<< HEAD
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    
+=======
+    <script src="https:/ /cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+>>>>>>> feca63891d9923da81086a8978f8441a317e0629
+    <style>
+        body {
+            padding-bottom: 20px; 
+        }
+        h2 {
+            font-family: 'Nunito', sans-serif;  
+            margin: 20px auto;  
+            color: #555;
+        }
+        .logo {
+        font-size: 24px;
+        color: #009688; 
+        font-weight: bold;
+        margin: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1 class="logo">
+        <span class="text-primary"><i class="fas fa-book-open"></i> DS551</span> Team20
+    </h1>
+
+    <h2 class="text-center">EV Data Visualization</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div style="width: 100%; height: 320px; margin-bottom: 30px;">
+                    <canvas id="barChart"></canvas>
+                </div>
+                <div id="chart-container" style="width: 100%; height: 400px;"></div>
+            </div>
+            
+            <div class="col-md-8">
+                <div id="container" style="height: 750px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+<<<<<<< HEAD
+document.addEventListener('DOMContentLoaded', function() {
+    // Fetch data from the server
+    Promise.all([
+        fetch('/data_before_2020').then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        }),
+        fetch('/data_after_2020').then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+    ]).then(([dataBefore2020, dataAfter2020]) => {
+        // Log the fetched data to verify its structure and contents
+        console.log('Data Before 2020:', dataBefore2020);
+        console.log('Data After 2020:', dataAfter2020);
+
+        // Verify data mapping
+        const mappedDataBefore2020 = dataBefore2020.map(item => ({
+            name: item.Make,
+            lon: item.longitude,
+            lat: item.latitude
+        }));
+        const mappedDataAfter2020 = dataAfter2020.map(item => ({
+            name: item.Make,
+            lon: item.longitude,
+            lat: item.latitude
+        }));
+
+        // Log the mapped data to ensure coordinates are parsed correctly
+        console.log('Mapped Data Before 2020:', mappedDataBefore2020);
+        console.log('Mapped Data After 2020:', mappedDataAfter2020);
+
+        console.log(mappedDataBefore2020.every(item => isFinite(item.lon) && isFinite(item.lat))); // Should log true
+        console.log(mappedDataAfter2020.every(item => isFinite(item.lon) && isFinite(item.lat))); // Should log true
+
+        // Initialize the Highcharts map
+        Highcharts.mapChart('container', {
+            chart: {
+                margin: 0
+            },
+            title: {
+                text: ''
+            },
+            navigation: {
+                buttonOptions: {
+                    align: 'left',
+                    theme: {
+                        stroke: '#e6e6e6'
+                    }
+                }
+            },
+            mapNavigation: {
+                enabled: true,
+                buttonOptions: {
+                    alignTo: 'spacingBox'
+                }
+            },
+            mapView: {
+                center: [-120.938, 47.195],
+                zoom: 7
+            },
+            tooltip: {
+                pointFormat: '<b>{point.name}</b><br>Lon: {point.lon}<br>Lat: {point.lat}'
+            },
+            plotOptions: {
+                mappoint: {
+                    enableMouseTracking: true, // Ensures that the points are interactive and visible
+                    marker: {
+                        enabled: true, // Make sure markers are explicitly enabled
+                        symbol: 'circle',
+                        fillColor: 'blue',
+                        radius: 5
+                    }
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            series: [{
+                type: 'tiledwebmap',
+                name: 'Basemap Tiles',
+                provider: {
+                    type: 'OpenStreetMap',
+                    theme: 'standard'
+                },
+                showInLegend: false
+            }, {
+                type: 'mappoint',
+                color: 'blue',
+                name: 'Data Before 2020',
+                data: mappedDataBefore2020.slice(0, 1000)
+            }, {
+                type: 'mappoint',
+                color: 'blue',
+                name: 'Data After 2020',
+                data: mappedDataAfter2020.slice(0, 1000)
+            },
+        ]
+        });
+        }).catch(error => {
+            console.error('Error loading map data:', error);
+        });
+    });
+
+=======
+    document.addEventListener('DOMContentLoaded', function() {
+        Promise.all([
+            fetch('/data_before_2020').then(response => response.json()),
+            fetch('/data_after_2020').then(response => response.json())
+        ]).then(([dataBefore2020, dataAfter2020]) => {
+
+            Highcharts.mapChart('container', {
+                chart: {
+                    margin: 0
+                },
+                title: {
+                    text: ''
+                },
+                navigation: {
+                    buttonOptions: {
+                        align: 'left',
+                        theme: {
+                            stroke: '#e6e6e6'
+                        }
+                    }
+                },
+                mapNavigation: {
+                    enabled: true,
+                    buttonOptions: {
+                        alignTo: 'spacingBox'
+                    }
+                },
+                mapView: {
+                    center: [-120.938, 47.195],
+                    zoom: 7
+                },
+                tooltip: {
+                    pointFormat: '<b>{point.make}</b><br>Lon: {point.lon}<br>Lat: {point.lat}'
+                },
+                plotOptions: {
+                    mappoint: {
+                        dataLabels: {
+                            enabled: false
+                        },
+                        marker: {
+                            symbol: 'circle',
+                            fillColor: 'blue' 
+                        }
+                    }
+                },
+                legend: {
+                    enabled: false 
+                },
+                series: [{
+                    type: 'tiledwebmap',
+                    name: 'Basemap Tiles',
+                    provider: {
+                        type: 'OpenStreetMap'
+                    },
+                    showInLegend: false
+                }, {
+                    type: 'mappoint',
+                    color: 'blue',
+                    name: 'Data Before 2020',
+                    data: dataBefore2020.map(item => ({
+                        make: item.Make,
+                        lon: item.longitude,
+                        lat: item.latitude
+                    }))
+                }, {
+                    type: 'mappoint',
+                    color: 'blue',
+                    name: 'Data After 2020',
+                    data: dataAfter2020.map(item => ({
+                        make: item.Make,
+                        lon: item.longitude,
+                        lat: item.latitude
+                    }))
+                }]
+            });
+        }).catch(error => console.error('Error loading map data:', error));
+    });   
+>>>>>>> feca63891d9923da81086a8978f8441a317e0629
+
+    /////////////////////////////////////////////
+
+    window.onload = function createBevPhevChart() {
+    fetch('/get-yearly-bev-phev-data')
+        .then(response => response.json())
+        .then(data => {
+            const chartData = {
+                labels: data.map(d => d.year.toString()), // Ensure this is converting year to string if not already
+                datasets: [
+                    {
+                        label: 'BEV',
+                        data: data.map(d => d.BEV)
+                    },
+                    {
+                        label: 'PHEV',
+                        data: data.map(d => d.PHEV)
+                    }
+                ]
+            };
+
+            const chartContainer = document.getElementById('chart-container');
+            const myChart = echarts.init(chartContainer);
+
+            const option = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'line'
+                    }
+                },
+                legend: {
+                    data: ['BEV', 'PHEV']
+                },
+                grid: [
+                    { top: '10%', height: '30%', containLabel: true }, // 调整高度，确保内容与标题不重叠
+                    { top: '45%', height: '30%', containLabel: true } // 适当调整位置和高度
+                ],
+                xAxis: [
+                    {
+                        gridIndex: 1,
+                        type: 'category',
+                        data: chartData.labels,  
+                        boundaryGap: false,   
+                        axisLabel: {
+                            interval: 0,  
+                            rotate: 45     
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        gridIndex: 1,
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name: 'BEV',
+                        type: 'line',
+                        smooth: true,  
+                        xAxisIndex: 0,
+                        yAxisIndex: 0,
+                        data: chartData.datasets[0].data
+                    },
+                    {
+                        name: 'PHEV',
+                        type: 'line',
+                        smooth: true,  
+                        xAxisIndex: 0,
+                        yAxisIndex: 0,
+                        data: chartData.datasets[1].data
+                    },
+                    {
+                        name: 'Distribution',
+                        type: 'pie',
+                        radius: '30%',
+                        center: ['50%', '25%'],
+                        label: {
+                            formatter: '{b}: {c} ({d}%)'
+                        },
+                        data: [
+                            { value: chartData.datasets[0].data[0], name: 'BEV' },
+                            { value: chartData.datasets[1].data[0], name: 'PHEV' }
+                        ]
+                    }
+                ],
+                title: {
+                    text: 'Comparison of Battery Electric Vehicle (BEV)\nand Plug-in Hybrid Electric Vehicle (PHEV)\nOver Time',
+                    left: 'center',  
+                    top: '83%',       
+                    textStyle: {
+                        fontSize: 15,
+                        color: '#808080', 
+                        padding: 10
+                    }
+                }
+            };
+
+            myChart.setOption(option);
+
+            myChart.on('updateAxisPointer', function (event) {
+                if (event.axesInfo) {
+                    const xAxisInfo = event.axesInfo[0];
+                    if (xAxisInfo) {
+                        const dataIndex = xAxisInfo.value;
+                        const bevCount = chartData.datasets[0].data[dataIndex];
+                        const phevCount = chartData.datasets[1].data[dataIndex];
+                        myChart.setOption({
+                            series: [{
+                                name: 'Distribution',
+                                data: [
+                                    { value: bevCount, name: 'BEV' },
+                                    { value: phevCount, name: 'PHEV' }
+                                ]
+                            }]
+                        });
+                    }
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+};
+
+    //////////////////////////////
+    let chart; // Declare a global variable to store the chart instance
+    let years = []; // Store the list of years
+
+    // Function to fetch data from the Flask backend and update the chart
+    function fetchDataAndUpdateChart() {
+      fetch('/get-visualization-data')
+        .then(response => response.json())
+        .then(data => {
+          if (years.length === 0) {
+            years = Object.keys(data); // Store the list of years only on the first iteration
+          }
+          const currentYear = years.shift(); // Get the first year from the years array
+          years = [...years, ...Object.keys(data)]; // Append the list of years from the new data
+          updateChartForYear(currentYear, data[currentYear]); // Update the chart with the current year's data
+
+          // Schedule the next update after five seconds
+          setTimeout(fetchDataAndUpdateChart, 2000);
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    }
+
+    // Function to update the chart for a specific year and make data
+    function updateChartForYear(year, makeData) {
+      if (!chart) {
+        // Create a new chart instance if it doesn't exist
+        const ctx = document.getElementById('barChart').getContext('2d');
+        chart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: [],
+            datasets: [{
+              label: `Number of Vehicles (${year})`,
+              data: [],
+              backgroundColor: 'rgba(76, 175, 80, 0.6)', 
+              borderColor: 'rgba(76, 175, 80, 1)', 
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+            labels: {
+            fontSize: 14
+            }
+            },
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            },
+            title: {  
+            display: true,
+            text: 'EV Make Distribution Over Time',  
+            fontSize: 18,  
+            fontColor: '#808080', 
+            padding: 10   
+            }
+          }
+        });
+      }
+
+      chart.data.labels = Object.keys(makeData);
+      chart.data.datasets[0].data = Object.values(makeData);
+      chart.data.datasets[0].label = `Number of Vehicles (${year})`;
+      chart.update();
+    }
+
+    fetchDataAndUpdateChart();
+
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> feca63891d9923da81086a8978f8441a317e0629
+    </script>
+</body>
+</html>

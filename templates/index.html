@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+    crossorigin="anonymous"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/lightbox.min.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/utilities.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  
+    <title>Welcome To Electric Vehicle Data Platform</title>
+  </head>
+  <body id="home">
+    <header class="hero">
+      <div id="navbar" class="navbar top">
+        <h1 class="logo">
+          <span class="text-primary"><i class="fas fa-book-open"></i> DS551</span
+          >Team20
+        </h1>
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="{{ url_for('search') }}" target="_blank">Search</a></li>
+            <li><a href="{{ url_for('visualization') }}" target="_blank">Visualization</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="content">
+        <h1>Electric Vehicle Data Platform</h1>
+        <p>Lookup, Analysis, and Visualization of Vehicles from WA Department of Licensing</p>
+        <a href="#search" class="btn"
+          ><i class="fas fa-chevron-right"></i> Read More</a
+        >
+      </div>
+    </header>
+
+    <main>
+
+      <!-- About:Solutions -->
+      <section class="solutions flex-columns" id="search">
+        <div class="row">
+          <div class="column">
+            <div class="column-1">
+              <img src="images/home/search.jpg" alt="" />
+            </div>
+          </div>
+          <div class="column">
+            <div class="column-2 bg-primary">
+              <h4>What you are looking for</h4>
+              <h2>Lookup Page:</h2>
+              <p>
+                Dive into our database to find the perfect electric vehicle for you. 
+                Search and filter through a vast collection of electronic vehicle data.
+                Use features like aggregation, groupby, or keyword search to discover the right fit for your needs.
+              </p>
+              <a href="{{ url_for('search') }}" target="_blank" class="btn btn-outline">
+                <i class="fas fa-chevron"></i>
+                Search
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- vis -->
+      <section id="vis" class="blog flex-columns flex-reverse">
+        <div class="row">
+          <div class="column">
+            <div class="column-1">
+              <img src="images/home/vis.jpg" alt="" />
+            </div>
+          </div>
+          <div class="column">
+            <div class="column-2 bg-secondary">
+              <h2>Visualization Page:</h2>
+              <p>
+                Discover the world of electric vehicles through captivating visualizations. Explore vehicle distribution, brand sales, and preferences with interactive charts, graphs, and maps. Gain valuable insights to inform your electric vehicle journey.
+              </p>
+              <a href="{{ url_for('visualization') }}" target="_blank" class="btn btn-outline">
+                <i class="fas fa-chevron"></i>
+                Visualization
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cases -->
+      <section id="cases" class="cases flex-grid section-padding">
+        <header class="section-header">
+          <h4>This is what you will find</h4>
+          <h2>Model Types</h2>
+          <!-- <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat,
+            dolore!
+          </p> -->
+        </header>
+        <div class="row">
+          <div class="column">
+            <a
+              href="images/cases/BMW.jpg"
+              data-lightbox="cases"
+              data-title="BMW X5"
+            >
+              <img src="images/cases/BMW.jpg" alt="" />
+            </a>
+            <a
+              href="images/cases/FIAT.jpg"
+              data-lightbox="cases"
+              data-title="FIAT 500"
+            >
+              <img src="images/cases/FIAT.jpg" alt="" />
+            </a>
+          </div>
+          <div class="column">
+            <a
+              href="images/cases/11.jpg"
+              data-lightbox="cases"
+              data-title="Tesla cybertruck"
+            >
+              <img src="images/cases/11.jpg" alt="" />
+            </a>
+            <a
+              href="images/cases/jeep.jpg"
+              data-lightbox="cases"
+              data-title="Jeep Wrangler"
+            >
+              <img src="images/cases/jeep.jpg" alt="" />
+            </a>
+          </div>
+          <div class="column">
+            <a
+            href="images/cases/audi.jpg"
+            data-lightbox="cases"
+            data-title="Audi E-Tron"
+          >
+            <img src="images/cases/audi.jpg" alt="" />
+          </a>
+            <a
+              href="images/cases/kia.jpg"
+              data-lightbox="cases"
+              data-title="Kia Optima"
+            >
+              <img src="images/cases/kia.jpg" alt="" />
+            </a>
+          </div>
+          <div class="column">
+            <a
+              href="images/cases/Volvo.jpg"
+              data-lightbox="cases"
+              data-title="Volvo XC60"
+            >
+              <img src="images/cases/Volvo.jpg" alt="" />
+            </a>
+            <a
+            href="images/cases/ford.jpg"
+            data-lightbox="cases"
+            data-title="FORD Fusion"
+          >
+            <img src="images/cases/ford.jpg" alt="" />
+          </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team -->
+      <section id="about" class="team section-padding">
+        <header class="section-header">
+          <h4>Who we are</h4>
+          <h2>Our Team Members</h2>
+          <!-- <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat,
+            dolore!
+          </p> -->
+        </header>
+        <div class="flex-items">
+          <div class="team-member">
+            <img src="images/team/person1.jpg" alt="Kexuan Zou" />
+            <h4>Kexuan Zou</h4>
+            <p>#3531800644</p>
+          </div>
+          <div class="team-member">
+            <img src="images/team/person2.jpg" alt="Yifeng Zou" />
+            <h4>Yifeng Zou</h4>
+            <p>#7523547424</p>
+          </div>
+          <div class="team-member">
+            <img src="images/team/person3.jpg" alt="Xinyi Wu" />
+            <h4>Xinyi Wu</h4>
+            <p>#9779688790</p>
+          </div>
+        </div>        
+      </section>
+
+    </main>
+
+    <footer class="footer bg-dark">
+      <div class="social">
+        <a href="https://github.com/22amillion/551project" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+        <a href="#"><i class="fab fa-google fa-2x"></i></a>
+        <a href="https://catalog.data.gov/dataset/electric-vehicle-population-data" target="_blank"><i class="fa fa-car fa-2x"aria-hidden="true"></i></a>
+        <!-- <a href="#"><i class="fab fa-linkedin fa-2x"></i></a> -->
+      </div>
+      <p>Copyright &copy; 2024 - DS551-Team20</p>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+      integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/lightbox.min.js"></script>
+    <script>
+      const navbar = document.getElementById('navbar');
+      let scrolled = false;
+
+      window.onscroll = function () {
+        if (window.pageYOffset > 100) {
+          navbar.classList.remove('top');
+          if (!scrolled) {
+            navbar.style.transform = 'translateY(-70px)';
+          }
+          setTimeout(function () {
+            navbar.style.transform = 'translateY(0)';
+            scrolled = true;
+          }, 200);
+        } else {
+          navbar.classList.add('top');
+          scrolled = false;
+        }
+      };
+
+      // Smooth Scrolling
+      $('#navbar a, .btn').on('click', function (e) {
+        if (this.hash !== '') {
+          e.preventDefault();
+
+          const hash = this.hash;
+
+          $('html, body').animate(
+            {
+              scrollTop: $(hash).offset().top - 100,
+            },
+            800
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
