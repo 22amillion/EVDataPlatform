@@ -78,11 +78,8 @@ def get_data_before_2020():
 
 @app.route('/data_after_2020', methods=['GET'])
 def get_data_after_2020():
-<<<<<<< HEAD
     data = get_data_from_mongodb("Electric_Vehicles_after_2020", "dataCleaned")  
-=======
     data = get_data_from_mongodb("Electric_Vehicles_after_2020", "dataCleaned")  # 根据你之前的设定调整
->>>>>>> feca63891d9923da81086a8978f8441a317e0629
     return jsonify(data)
 
 @app.route('/filter_data', methods=['GET'])
@@ -138,11 +135,8 @@ def get_grouped_visualization_data():
 @app.route('/get-yearly-bev-phev-data', methods=['GET'])
 def get_yearly_bev_phev_data():
     data = []
-<<<<<<< HEAD
+
     for year in range(2010, 2025):
-=======
-    for year in range(2011, 2025):
->>>>>>> feca63891d9923da81086a8978f8441a317e0629
         db_before = MongoClient(mongo_uri)["Electric_Vehicles_before_2020"]
         db_after = MongoClient(mongo_uri)["Electric_Vehicles_after_2020"]
         collection_before = db_before["dataCleaned"]
