@@ -1,2 +1,2 @@
 Architecture Design:
-![alt text](static/images/design.jpg)
+![alt text](static/images/design.png)
