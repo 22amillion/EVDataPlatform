@@ -47,23 +47,23 @@ DS551Project-EVDataPlatform
 
 ## Setup Instructions
 ### Data Preparation
-- Download the _Electric_Vehicle_Population_Data.csv_ file, which contains the electric vehicle population data, to your local machine.
+Download the _Electric_Vehicle_Population_Data.csv_ file, which contains the electric vehicle population data, to your local machine.
 
 ### MongoDB Compass Setup
 - **Install MongoDB Compass**: Download and install MongoDB Compass from the [official MongoDB website](https://www.mongodb.com/try/download/shell).
 - **Connect to MongoDB**: Launch MongoDB Compass and connect to your local MongoDB instance. If you haven't set up MongoDB locally, follow the [official installation instructions](https://www.mongodb.com/docs/manual/administration/install-community/) to install and configure MongoDB.
 
 ## Data Cleaning
-Execute the dataClean.py script to perform data cleaning on the original Electric Vehicle Population Data CSV file.<br>
+- Execute the dataClean.py script to perform data cleaning on the original Electric Vehicle Population Data CSV file.<br>
 '''python dataClean.py'''<br>
-This script will read the CSV file, perform data cleaning operations, and write the cleaned data to a new file named Electric_Vehicle_Population_Data_Cleaned which contains several CVS files.
+- This script will read the CSV file, perform data cleaning operations, and write the cleaned data to a new file named Electric_Vehicle_Population_Data_Cleaned which contains several CVS files.
 
 ## Data Upload
-- Run the uploadToMongoDB.py script to split the cleaned data into two databases and upload it to MongoDB Compass. Ensure that MongoDB Compass is running and properly configured.<br>
+Run the uploadToMongoDB.py script to split the cleaned data into two databases and upload it to MongoDB Compass. Ensure that MongoDB Compass is running and properly configured.<br>
 '''python uploadToMongoDB.py'''
 
 ## Database Management
-- The db_management.py script provides functionality to perform CRUD (Create, Read, Update, Delete) operations on the data stored in the MongoDB database.<br>
+The db_management.py script provides functionality to perform CRUD (Create, Read, Update, Delete) operations on the data stored in the MongoDB database.<br>
 '''python db_management.py'''
 
 ## Web Application
@@ -72,8 +72,8 @@ This script will read the CSV file, perform data cleaning operations, and write 
 '''python main.py
 
 ## Usage
-Once the frontend and backend are connected, users can access the Electric Vehicle Data Platform through the provided HTML files (index.html, search.html, visualization.html).
-Users can interact with the platform to search for electric vehicle data, visualize trends, and filter data based on various criteria.
+- Once the frontend and backend are connected, users can access the Electric Vehicle Data Platform through the provided HTML files (index.html, search.html, visualization.html).
+- Users can interact with the platform to search for electric vehicle data, visualize trends, and filter data based on various criteria.
 
 ## Wrapping Up
 
