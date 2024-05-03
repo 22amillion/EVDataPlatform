@@ -64,12 +64,12 @@ Run the uploadToMongoDB.py script to split the cleaned data into two databases a
 
 ## Database Management
 The db_management.py script provides functionality to perform CRUD (Create, Read, Update, Delete) operations on the data stored in the MongoDB database.<br>
-`python db_management.py`
+'''python db_management.py'''
 
 ## Web Application
 Run the main.py script to start the Flask web application. This will launch a web interface where you can explore and visualize the electric vehicle population data.
 The static folder contains CSS, JavaScript, and image files used by the web application.<br>
-`python main.py`
+'''python main.py
 
 ## Wrapping Up
 
