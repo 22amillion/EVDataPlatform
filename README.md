@@ -54,7 +54,7 @@ DS551Project-EVDataPlatform
 - **Connect to MongoDB**: Launch MongoDB Compass and connect to your local MongoDB instance. If you haven't set up MongoDB locally, follow the [official installation instructions](https://www.mongodb.com/docs/manual/administration/install-community/) to install and configure MongoDB.
 
 ## Data Cleaning
-Execute the dataClean.py script to perform data cleaning on the original Electric Vehicle Population Data CSV file
+Execute the dataClean.py script to perform data cleaning on the original Electric Vehicle Population Data CSV file.
 '''python dataClean.py'''
 This script will read the CSV file, perform data cleaning operations, and write the cleaned data to a new file named Electric_Vehicle_Population_Data_Cleaned which contains several CVS files.
 
