@@ -28,10 +28,6 @@ Welcome to the Electric Vehicle (EV) Data Platform! Our system is designed to ma
 - **Visualization Page**: Engage with data through interactive visualizations that make trends easy to understand.
 - **Database Manager’s Interface**: Direct database interactions via a Python-powered backend for precise control over data operations. Database managers can add, remove, or change records easily. These changes are smartly sent to the correct database.
 
-## Wrapping Up
-
-Our Electric Vehicle Data Platform is powerful and designed to handle lots of data with ease. We use a combination of MongoDB, PySpark, Flask, and JavaScript to make sure our platform works well and meets the needs of both database managers and regular users.
-
 ## Setup Instructions
 ### Data Preparation
 
@@ -50,8 +46,11 @@ Our Electric Vehicle Data Platform is powerful and designed to handle lots of da
 - Run the _uploadToMongoDB.py_ script to split the cleaned data into two databases and upload it to MongoDB Compass. Ensure that MongoDB Compass is running and properly configured. <br  /> 
 `python uploadToMongoDB.py`
 
+## Wrapping Up
 
-## Thank You!
+Our Electric Vehicle Data Platform is powerful and designed to handle lots of data with ease. We use a combination of MongoDB, PySpark, Flask, and JavaScript to make sure our platform works well and meets the needs of both database managers and regular users.
+
+### Thank You!
 
 We appreciate your interest in our project. Your feedback and contributions are welcome as we continue to refine and expand our platform.
 
