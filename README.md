@@ -59,17 +59,21 @@ Execute the dataClean.py script to perform data cleaning on the original Electri
 This script will read the CSV file, perform data cleaning operations, and write the cleaned data to a new file named Electric_Vehicle_Population_Data_Cleaned which contains several CVS files.
 
 ## Data Upload
-Run the uploadToMongoDB.py script to split the cleaned data into two databases and upload it to MongoDB Compass. Ensure that MongoDB Compass is running and properly configured.<br>
+- Run the uploadToMongoDB.py script to split the cleaned data into two databases and upload it to MongoDB Compass. Ensure that MongoDB Compass is running and properly configured.<br>
 '''python uploadToMongoDB.py'''
 
 ## Database Management
-The db_management.py script provides functionality to perform CRUD (Create, Read, Update, Delete) operations on the data stored in the MongoDB database.<br>
+- The db_management.py script provides functionality to perform CRUD (Create, Read, Update, Delete) operations on the data stored in the MongoDB database.<br>
 '''python db_management.py'''
 
 ## Web Application
-Run the main.py script to start the Flask web application. This will launch a web interface where you can explore and visualize the electric vehicle population data.
-The static folder contains CSS, JavaScript, and image files used by the web application.<br>
+- Run the main.py script to start the Flask web application. This will launch a web interface where you can explore and visualize the electric vehicle population data.
+- The static folder contains CSS, JavaScript, and image files used by the web application.<br>
 '''python main.py
+
+## Usage
+Once the frontend and backend are connected, users can access the Electric Vehicle Data Platform through the provided HTML files (index.html, search.html, visualization.html).
+Users can interact with the platform to search for electric vehicle data, visualize trends, and filter data based on various criteria.
 
 ## Wrapping Up
 
