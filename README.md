@@ -8,6 +8,23 @@ Welcome to the Electric Vehicle (EV) Data Platform! Our system is designed to ma
 
 ![Architecture Design](static/images/design.png)
 
+## Project Files Structure
+DS551Project-EVDataPlatform
+├── Electric_Vehicle_Population_Data_Cleaned
+├── static
+│   ├── css
+│   ├── images
+│   └── js
+│       └── favicon.ico
+├── templates
+├── dataClean.py
+├── db_management.py
+├── Electric_Vehicle_Population_Data.csv
+├── main.py
+├── Requirements.txt
+└── uploadToMongoDB.py
+
+
 ## Key Features
 
 ### MongoDB for Distributed Data Management
@@ -30,21 +47,29 @@ Welcome to the Electric Vehicle (EV) Data Platform! Our system is designed to ma
 
 ## Setup Instructions
 ### Data Preparation
-
 - Download the _Electric_Vehicle_Population_Data.csv_ file, which contains the electric vehicle population data, to your local machine.
 
 ### MongoDB Compass Setup
 - **Install MongoDB Compass**: Download and install MongoDB Compass from the [official MongoDB website](https://www.mongodb.com/try/download/shell).
 - **Connect to MongoDB**: Launch MongoDB Compass and connect to your local MongoDB instance. If you haven't set up MongoDB locally, follow the [official installation instructions](https://www.mongodb.com/docs/manual/administration/install-community/) to install and configure MongoDB.
 
-### Data Cleaning
-- Execute the _dataClean.py_ script to perform data cleaning on the original Electric Vehicle Population Data CSV file. <br  /> 
-`python dataClean.py` <br  /> 
-- This script will read the CSV file, perform data cleaning operations, and write the cleaned data to a new file named Electric_Vehicle_Population_Data_Cleaned which contains several CVS files. 
+## Data Cleaning
+Execute the dataClean.py script to perform data cleaning on the original Electric Vehicle Population Data CSV file
+'''python dataClean.py'''
+This script will read the CSV file, perform data cleaning operations, and write the cleaned data to a new file named Electric_Vehicle_Population_Data_Cleaned which contains several CVS files.
 
-### Data Upload
-- Run the _uploadToMongoDB.py_ script to split the cleaned data into two databases and upload it to MongoDB Compass. Ensure that MongoDB Compass is running and properly configured. <br  /> 
-`python uploadToMongoDB.py`
+## Data Upload
+Run the uploadToMongoDB.py script to split the cleaned data into two databases and upload it to MongoDB Compass. Ensure that MongoDB Compass is running and properly configured.
+'''python uploadToMongoDB.py'''
+
+## Database Management
+The db_management.py script provides functionality to perform CRUD (Create, Read, Update, Delete) operations on the data stored in the MongoDB database.
+'''python db_management.py'''
+
+## Web Application
+Run the main.py script to start the Flask web application. This will launch a web interface where you can explore and visualize the electric vehicle population data.
+The static folder contains CSS, JavaScript, and image files used by the web application.
+'''python main.py'''
 
 ## Wrapping Up
 
