@@ -51,7 +51,7 @@ Our Electric Vehicle Data Platform is powerful and designed to handle lots of da
 `python uploadToMongoDB.py`
 
 
-### Thank You!
+## Thank You!
 
 We appreciate your interest in our project. Your feedback and contributions are welcome as we continue to refine and expand our platform.
 
