@@ -35,19 +35,19 @@ Our Electric Vehicle Data Platform is powerful and designed to handle lots of da
 ## Setup Instructions
 ### Data Preparation
 
-- **Download the _Electric_Vehicle_Population_Data.csv_ file, which contains the electric vehicle population data, to your local machine.
+- Download the _Electric_Vehicle_Population_Data.csv_ file, which contains the electric vehicle population data, to your local machine.
 
 ### MongoDB Compass Setup
 - **Install MongoDB Compass**: Download and install MongoDB Compass from the [official MongoDB website](https://www.mongodb.com/try/download/shell).
 - **Connect to MongoDB**: Launch MongoDB Compass and connect to your local MongoDB instance. If you haven't set up MongoDB locally, follow the [official installation instructions](https://www.mongodb.com/docs/manual/administration/install-community/) to install and configure MongoDB.
 
 ## Data Cleaning
-- **Execute the _dataClean.py_ script to perform data cleaning on the original Electric Vehicle Population Data CSV file. <br  /> 
+- Execute the _dataClean.py_ script to perform data cleaning on the original Electric Vehicle Population Data CSV file. <br  /> 
 `python dataClean.py` <br  /> 
 - **This script will read the CSV file, perform data cleaning operations, and write the cleaned data to a new file named Electric_Vehicle_Population_Data_Cleaned which contains several CVS files. 
 
 ## Data Upload
-- **Run the _uploadToMongoDB.py_ script to split the cleaned data into two databases and upload it to MongoDB Compass. Ensure that MongoDB Compass is running and properly configured. <br  /> 
+- Run the _uploadToMongoDB.py_ script to split the cleaned data into two databases and upload it to MongoDB Compass. Ensure that MongoDB Compass is running and properly configured. <br  /> 
 `python uploadToMongoDB.py`
 
 
