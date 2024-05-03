@@ -79,7 +79,7 @@ def get_data_before_2020():
 @app.route('/data_after_2020', methods=['GET'])
 def get_data_after_2020():
     data = get_data_from_mongodb("Electric_Vehicles_after_2020", "dataCleaned")  
-    data = get_data_from_mongodb("Electric_Vehicles_after_2020", "dataCleaned")  # 根据你之前的设定调整
+    data = get_data_from_mongodb("Electric_Vehicles_after_2020", "dataCleaned")  
     return jsonify(data)
 
 @app.route('/filter_data', methods=['GET'])
