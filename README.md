@@ -32,6 +32,25 @@ Welcome to the Electric Vehicle (EV) Data Platform! Our system is designed to ma
 
 Our Electric Vehicle Data Platform is powerful and designed to handle lots of data with ease. We use a combination of MongoDB, PySpark, Flask, and JavaScript to make sure our platform works well and meets the needs of both database managers and regular users.
 
+## Setup Instructions
+### Data Preparation
+
+Data Preparation**:  Download the Electric_Vehicle_Population_Data.csv file, which contains the electric vehicle population data, to your local machine.
+
+### MongoDB Compass Setup
+1. Install MongoDB Compass: Download and install MongoDB Compass from the official MongoDB website.
+2. Connect to MongoDB: Launch MongoDB Compass and connect to your local MongoDB instance. If you haven't set up MongoDB locally, follow the official installation instructions to install and configure MongoDB.
+
+## Data Cleaning
+Execute the dataClean.py script to perform data cleaning on the original Electric Vehicle Population Data CSV file
+python dataClean.py
+This script will read the CSV file, perform data cleaning operations, and write the cleaned data to a new file named Electric_Vehicle_Population_Data_Cleaned which contains several CVS files.
+
+## Data Upload
+Run the uploadToMongoDB.py script to split the cleaned data into two databases and upload it to MongoDB Compass. Ensure that MongoDB Compass is running and properly configured.
+python uploadToMongoDB.py
+
+
 ### Thank You!
 
 We appreciate your interest in our project. Your feedback and contributions are welcome as we continue to refine and expand our platform.
